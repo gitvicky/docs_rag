@@ -72,6 +72,17 @@ python numpy_rag_assistant.py
 
 ### First Run
 
+**Option A: Web Interface (Recommended) 🌐**
+```bash
+# Terminal 1: Start Ollama (keep running)
+ollama serve
+
+# Terminal 2: Launch Streamlit app
+python launch_streamlit.py
+# Opens in browser at http://localhost:8501
+```
+
+**Option B: Command Line**
 ```bash
 # Terminal 1: Start Ollama (keep running)
 ollama serve
@@ -81,6 +92,31 @@ python numpy_rag_assistant.py
 ```
 
 ## 💬 Usage Examples
+
+### Web Interface (Streamlit)
+
+The Streamlit app provides a modern, user-friendly interface with multiple features:
+
+**Features:**
+- 💬 **Chat Tab**: Interactive conversation with the assistant
+- 🔍 **Search Tab**: Direct documentation search
+- 📊 **Analytics Tab**: Usage statistics and insights
+- ℹ️ **About Tab**: System information and resources
+- 📥 **Export**: Download conversations as JSON
+- 🎨 **Beautiful UI**: Modern, responsive design
+
+**Launch:**
+```bash
+python launch_streamlit.py
+```
+
+**Screenshots:**
+- Clean chat interface with source citations
+- Real-time documentation search
+- Conversation analytics dashboard
+- Configurable settings sidebar
+
+### Command Line Interface
 
 ### Basic Chat
 ```
@@ -232,9 +268,15 @@ numpy-rag-assistant/
 │   └── build_vector_db_stable.py   # Build database (stable)
 │
 ├── 🤖 Chatbot Applications
-│   ├── numpy_rag_assistant.py      # RAG-powered (recommended)
+│   ├── numpy_rag_assistant.py      # RAG-powered (CLI)
 │   ├── numpy_assistant.py          # Feature-rich non-RAG
 │   └── numpy_assistant_simple.py   # Minimal version
+│
+├── 🌐 Web Interface (NEW!)
+│   ├── streamlit_app.py            # Basic Streamlit app
+│   ├── streamlit_app_advanced.py   # Advanced app (recommended)
+│   ├── launch_streamlit.py         # App launcher
+│   └── requirements_streamlit.txt  # Streamlit dependencies
 │
 ├── 📚 Documentation
 │   ├── TROUBLESHOOTING.md          # Common issues & fixes
@@ -345,6 +387,146 @@ python quick_fix.py
 3. Setup RAG: python setup_rag.py (15 min)
 4. Explore: Try different commands and modes (38 min)
 ```
+
+## 🌐 Web Interface (Streamlit)
+
+### Why Use the Web Interface?
+
+The Streamlit app provides several advantages over the command-line interface:
+
+- 🎨 **Modern UI**: Beautiful, intuitive interface
+- 📱 **Multi-tab Layout**: Chat, Search, Analytics, and About tabs
+- 📊 **Visual Analytics**: See usage statistics and conversation breakdown
+- 💾 **Easy Export**: Download conversations with one click
+- 🎛️ **Live Configuration**: Adjust settings in real-time
+- 🔍 **Enhanced Search**: Visual documentation browser
+- 📚 **Better Source Display**: Expandable, formatted source citations
+
+### Quick Start
+
+**1. Install Streamlit (if not already installed):**
+```bash
+pip install streamlit
+```
+
+**2. Launch the app:**
+```bash
+python launch_streamlit.py
+```
+
+**3. Choose version:**
+- **Standard** (`streamlit_app.py`): Basic features
+- **Advanced** (`streamlit_app_advanced.py`): Full-featured (recommended)
+
+The launcher will:
+- ✅ Check all prerequisites
+- ✅ Verify Ollama is running
+- ✅ Confirm vector database exists
+- ✅ Launch the app in your browser
+
+### Manual Launch
+
+```bash
+# Launch advanced version directly
+streamlit run streamlit_app_advanced.py
+
+# Or basic version
+streamlit run streamlit_app.py
+```
+
+### Web Interface Features
+
+#### 💬 Chat Tab
+- Interactive Q&A with NumPy assistant
+- Example query buttons for quick start
+- Real-time source citations
+- Conversation memory
+- Typing indicator
+
+#### 🔍 Search Tab
+- Direct documentation search
+- Adjustable result count
+- Expandable results with full content
+- Quick "Ask about this" feature
+- Copy source links
+
+#### 📊 Analytics Tab
+- Document count statistics
+- Message breakdown charts
+- Recent query history
+- Visual conversation analytics
+
+#### ℹ️ About Tab
+- System information
+- Feature overview
+- Quick start guide
+- Resource links
+- Model configuration display
+
+#### ⚙️ Sidebar Settings
+- **Model Selection**: Choose your LLM
+- **Temperature Control**: Adjust creativity
+- **Retrieved Documents**: Set context size
+- **Show Sources Toggle**: Enable/disable citations
+- **Export Conversations**: Download chat history
+- **Clear/Reload**: Reset or reinitialize
+
+### Configuration
+
+The Streamlit app uses the same configuration as the CLI version but with interactive controls:
+
+```python
+# These settings can be adjusted in the sidebar:
+- Model: mistral, mixtral, llama2, codellama
+- Temperature: 0.0 - 1.0 (default: 0.3)
+- Top K: 1 - 10 documents (default: 5)
+- Show Sources: On/Off
+```
+
+### Screenshots & Features
+
+**Main Interface:**
+- Clean, modern design
+- Responsive layout
+- Dark mode support (from browser)
+- Mobile-friendly
+
+**Example Queries:**
+- Pre-built query buttons
+- Categorized by skill level
+- One-click to start conversation
+
+**Source Citations:**
+- Expandable source cards
+- Clickable URLs
+- Copy-to-clipboard
+- Highlighted relevance
+
+### Tips for Best Experience
+
+1. **Use Example Queries**: Great starting point for beginners
+2. **Enable Show Sources**: Learn where information comes from
+3. **Try Search Tab**: Quick documentation lookups
+4. **Check Analytics**: Track your learning progress
+5. **Export Conversations**: Save important discussions
+
+### Troubleshooting Web Interface
+
+**Port already in use:**
+```bash
+# Use different port
+streamlit run streamlit_app_advanced.py --server.port 8502
+```
+
+**App not opening in browser:**
+```bash
+# Manually open: http://localhost:8501
+```
+
+**Slow responses:**
+- Reduce "Retrieved Documents" in sidebar
+- Try a smaller model
+- Check system resources
 
 ## 🔄 Updating Documentation
 
